@@ -12,6 +12,23 @@ module.exports = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      fontFamily: {
+        'oceanwide': ['Oceanwide'],
+
+        'galanoBlack': ['Galano-Black'],
+        'galanoExtraBold': ['Galano-ExtraBold'],
+        'galanoBold': ['Galano-Bold'],
+        'galanoSemiBold': ['Galano-SemiBold'],
+        'galanoHeavy': ['Galano-Heavy'],
+        'galanoMedium': ['Galano-Medium'],
+        'galanoRegular': ['Galano-Regular'],
+        'galanoThin': ['Galano-Thin'],
+        'galanoLight': ['Galano-Light'],
+        'galanoExtraLight': ['Galano-ExtraLight'],
+
+        'Circular': ['Circular-Std'],
+
+      }
     },
   },
   plugins: [],

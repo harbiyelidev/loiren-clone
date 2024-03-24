@@ -3,31 +3,131 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
+  --text-color: #060607;
+  --bg-color: #f5f5f5;
   --background-end-rgb: 255, 255, 255;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --text-color: #060607;
+    /* --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0; */
   }
 }
 
+::-webkit-scrollbar {
+  display: none;
+}
+
+html {
+  font-feature-settings: normal;
+  font-variation-settings: normal;
+  tab-size: 4;
+}
+
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  color: var(--text-color);
+  background-color: var(--bg-color);
+  transition: background-color .1s ease-in-out, color .1s ease-in-out;
+  -webkit-font-smoothing: antialiased;
+}
+
+.background-image {
+  background-image: url(./../assets/img/background.jpg);
+  background-size: cover;
+  background-position: center center;
+}
+
+.mask {
+  -webkit-mask-image: linear-gradient(0deg, transparent, rgba(0, 0, 0, .4));
+  mask-image: linear-gradient(0deg, transparent, rgba(0, 0, 0, .4));
+}
+
+.bg-text-blue {
+  background-image: url(./../assets/svg/blue-cricle.svg);
+  background-size: 150% auto;
+  background-position: center;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.bg-text-gray {
+  background-image: url(./../assets/svg/gray-cricle.svg);
+  background-size: 150% auto;
+  background-position: center;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.bg-text-red {
+  background-image: url(./../assets/svg/red-cricle.svg);
+  background-size: 150% auto;
+  background-position: center;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.darkPartner {
+  background-image: url(https://i.ibb.co/LdDnHQ9/dp1.png);
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+}
+
+@layer base {
+  @font-face {
+    font-family: 'Oceanwide';
+    src: local('Oceanwide'), url('https://fonts.cdnfonts.com/s/87447/Oceanwide-Semibold.woff') format('woff');
+  }
+  @font-face {
+    font-family: 'Galano-Black';
+    src: url('./../assets/fonts/Galano-Black.otf') format('opentype');
+  }
+  @font-face {
+    font-family: 'Galano-ExtraBold';
+    src: url('./../assets/fonts/Galano-ExtraBold.otf') format('opentype');
+  }
+  @font-face {
+    font-family: 'Galano-Bold';
+    src: url('./../assets/fonts/Galano-Bold.otf') format('opentype');
+  }
+  @font-face {
+    font-family: 'Galano-SemiBold';
+    src: url('./../assets/fonts/Galano-SemiBold.otf') format('opentype');
+  }
+  @font-face {
+    font-family: 'Galano-Heavy';
+    src: url('./../assets/fonts/Galano-Heavy.otf') format('opentype');
+  }
+  @font-face {
+    font-family: 'Galano-Medium';
+    src: url('./../assets/fonts/Galano-Medium.otf') format('opentype');
+  }
+  @font-face {
+    font-family: 'Galano-Regular';
+    src: url('./../assets/fonts/Galano-Regular.otf') format('opentype');
+  }
+  @font-face {
+    font-family: 'Galano-Thin';
+    src: url('./../assets/fonts/Galano-Thin.otf') format('opentype');
+  }
+  @font-face {
+    font-family: 'Galano-Light';
+    src: url('./../assets/fonts/Galano-Light.otf') format('opentype');
+  }
+  @font-face {
+    font-family: 'Galano-ExtraLight';
+    src: url('./../assets/fonts/Galano-ExtraLight.otf') format('opentype');
+  }
+  @font-face {
+    font-family: 'Circular-Std';
+    src: url('./../assets/fonts/Circular-Std.ttf') format('truetype');
   }
 }
