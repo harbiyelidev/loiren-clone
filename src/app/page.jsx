@@ -2,9 +2,12 @@
 
 import React, {useState} from 'react'
 import Image from 'next/image'
-
+import { BiPackage } from "react-icons/bi";
+import { MdAttachMoney } from "react-icons/md";
+import { LuClock4 } from "react-icons/lu";
 
 import SWR from './api/swr';
+import { products } from './api/variables';
 
 import { motion } from 'framer-motion'
 
@@ -131,50 +134,55 @@ const Home = () => {
             </motion.div>
           </div>
         </motion.div>
-        {/* <div className='py-24 max-w-6xl w-full mx-auto'>
+        <div className='py-24 max-w-6xl w-full mx-auto'>
           <div className='flex flex-col items-start justify-start'>
             <h1 className='flex items-center text-2xl sm:text-4xl text-start tracking-tight font-oceanwide'>
               <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 24 24" className="mr-2" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M22 8a.76.76 0 0 0 0-.21v-.08a.77.77 0 0 0-.07-.16.35.35 0 0 0-.05-.08l-.1-.13-.08-.06-.12-.09-9-5a1 1 0 0 0-1 0l-9 5-.09.07-.11.08a.41.41 0 0 0-.07.11.39.39 0 0 0-.08.1.59.59 0 0 0-.06.14.3.3 0 0 0 0 .1A.76.76 0 0 0 2 8v8a1 1 0 0 0 .52.87l9 5a.75.75 0 0 0 .13.06h.1a1.06 1.06 0 0 0 .5 0h.1l.14-.06 9-5A1 1 0 0 0 22 16V8zm-10 3.87L5.06 8l2.76-1.52 6.83 3.9zm0-7.72L18.94 8 16.7 9.25 9.87 5.34zM4 9.7l7 3.92v5.68l-7-3.89zm9 9.6v-5.68l3-1.68V15l2-1v-3.18l2-1.11v5.7z"></path></svg>
-              <span className='bg-text-red'>NPM</span>
-              &nbsp;Packages
+              <span className='bg-text-red'>My Products</span>
             </h1>
-            <p className='font-galanoMedium text-black/80 tracking-tight text-sm sm:text-base'>I have developed many packages, you can find them all here.</p>
+            <p className='font-galanoMedium text-black/80 tracking-tight text-sm sm:text-base'>My actively developed and on sale software products.</p>
           </div>
           <motion.div
           variants={container}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-10">
-            <a href="/">
+            {!products.isLoading && products.sort((a, b) => b.id - a.id).map((items, key) => (
+              <a href="/" key={items.id}>
               <div className='p-6 bg-gray-200/70 border border-black/5 rounded-lg transition-all duration-200 hover:bg-gray-300/60 cursor-pointer'>
                 <div className="flex items-center justify-between">
                   <div className="flex flex-col items-start w-full">
                     <div className="flex flex-col max-w-sm w-full">
                       <div className="flex items-center space-x-2">
                         <h1 className='flex text-lg text-gray-700 items-center tracking-tight font-oceanwide'>
-                          <svg stroke="currentColor" fill="currentColor" strokeWidth="0" version="1.1" viewBox="0 0 16 16" className="mr-2" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M0 0v16h16v-16h-16zM13 13h-2v-8h-3v8h-5v-10h10v10z"></path></svg>
-                          advanced-logs
+                          <BiPackage className='mr-2 w-5 h-5'/>
+                          {/* <svg stroke="currentColor" fill="currentColor" strokeWidth="0" version="1.1" viewBox="0 0 16 16" className="mr-2" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M0 0v16h16v-16h-16zM13 13h-2v-8h-3v8h-5v-10h10v10z"></path></svg> */}
+                          {items.name}
                         </h1>
                       </div>
                       <p className='text-black/70 text-[13px] font-galanoMedium tracking-tight mt-1 break-all line-clamp-1 h-4'>
-                      Beautify and modernize console messages.
+                      {items.description}
                       </p>
                     </div>
                     <div className="flex items-center justify-between pt-8 w-full">
                       <div className="flex items-center justify-center">
-                        <div className="h-4 w-4 bg-green-500 rounded-full mr-1"></div>
-                        <p className='font-galanoSemiBold text-sm tracking-tight text-black/80 ml-1'>MIT</p>
+                        <MdAttachMoney className="h-[18px] w-[18px] text-green-600"/>
+                        <p className='font-galanoSemiBold text-sm tracking-tight text-black/80'>{items.price}</p>
                       </div>
-                      <div className="flex items-center justify-center space-x-3">
-                        <div className="flex items-center">
+                      <div className="flex items-center justify-center space-x-2">
+                        {/* <div className="flex items-center">
                           <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 24 24" className="text-rose-400 mr-1" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path fill="none" d="M0 0h24v24H0z"></path><path d="M5 20h14v-2H5v2zM19 9h-4V3H9v6H5l7 7 7-7z"></path></svg>
                           <p className="font-galanoSemiBold text-sm tracking-tight text-black/80 ml-1">1859</p>
                         </div>
                         <div className="flex items-center">
                           <svg stroke="currentColor" fill="none" strokeWidth="2" viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round" className="text-gray-500 mr-1" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M12 3l8 4.5l0 9l-8 4.5l-8 -4.5l0 -9l8 -4.5"></path><path d="M12 12l8 -4.5"></path><path d="M12 12l0 9"></path><path d="M12 12l-8 -4.5"></path><path d="M16 5.25l-8 4.5"></path></svg>
                           <p className="font-galanoSemiBold text-sm tracking-tight text-black/80 ml-1">0</p>
+                        </div> */}
+                        <div className="flex items-center">
+                          <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 24 24" className="text-rose-400 mr-1" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16.5,19 C17.8807119,19 19,17.8807119 19,16.5 C19,15.1192881 17.8807119,14 16.5,14 C15.1192881,14 14,15.1192881 14,16.5 C14,17.8807119 15.1192881,19 16.5,19 Z M10,5 L12,3 M7.5,10 C8.88071187,10 10,8.88071187 10,7.5 C10,6.11928813 8.88071187,5 7.5,5 C6.11928813,5 5,6.11928813 5,7.5 C5,8.88071187 6.11928813,10 7.5,10 Z M8,16 L16,8 M5.5,21 C6.88071187,21 8,19.8807119 8,18.5 C8,17.1192881 6.88071187,16 5.5,16 C4.11928813,16 3,17.1192881 3,18.5 C3,19.8807119 4.11928813,21 5.5,21 Z M18.5,8 C19.8807119,8 21,6.88071187 21,5.5 C21,4.11928813 19.8807119,3 18.5,3 C17.1192881,3 16,4.11928813 16,5.5 C16,6.88071187 17.1192881,8 18.5,8 Z M12,21 L14,19"></path></svg>
+                          <p className="font-galanoSemiBold text-sm tracking-tight text-black/80 ml-1">{items.version}</p>
                         </div>
                         <div className="flex items-center">
-                          <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 24 24" className="text-gray-500 mr-1" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path fill="none" stroke="#000" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16.5,19 C17.8807119,19 19,17.8807119 19,16.5 C19,15.1192881 17.8807119,14 16.5,14 C15.1192881,14 14,15.1192881 14,16.5 C14,17.8807119 15.1192881,19 16.5,19 Z M10,5 L12,3 M7.5,10 C8.88071187,10 10,8.88071187 10,7.5 C10,6.11928813 8.88071187,5 7.5,5 C6.11928813,5 5,6.11928813 5,7.5 C5,8.88071187 6.11928813,10 7.5,10 Z M8,16 L16,8 M5.5,21 C6.88071187,21 8,19.8807119 8,18.5 C8,17.1192881 6.88071187,16 5.5,16 C4.11928813,16 3,17.1192881 3,18.5 C3,19.8807119 4.11928813,21 5.5,21 Z M18.5,8 C19.8807119,8 21,6.88071187 21,5.5 C21,4.11928813 19.8807119,3 18.5,3 C17.1192881,3 16,4.11928813 16,5.5 C16,6.88071187 17.1192881,8 18.5,8 Z M12,21 L14,19"></path></svg>
-                          <p className="font-galanoSemiBold text-sm tracking-tight text-black/80 ml-1">v2.1.3</p>
+                            <LuClock4 className='w-4 h-4 text-black mr-1'/>
+                          <p className="font-galanoSemiBold text-sm tracking-tight text-black/80 ml-1">{items.upDate}</p>
                         </div>
                       </div>
                     </div>
@@ -182,8 +190,9 @@ const Home = () => {
                 </div>
               </div>
             </a>
+              ))}
           </motion.div>
-        </div> */}
+        </div>
         <Technologies />
       </motion.div>
       <Footer />

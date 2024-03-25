@@ -1,8 +1,16 @@
 import React from 'react'
+import { HiOutlineMenuAlt3 } from "react-icons/hi";
 
 const Navbar = () => {
+
+  function togglemenu() {
+    let NavBar = document.querySelector(".navbar");
+    NavBar.classList.toggle("hidden");
+  }
+
   return (
-    <div className='grid grid-cols-3 max-w-6xl mx-auto mt-4 p-1 px-2 translate-y-0 rounded-full transition-all duration-200'>
+    <div>
+      <div className='grid grid-cols-2 sm:grid-cols-3 max-w-6xl mx-auto mt-4 p-1 px-2 translate-y-0 rounded-full transition-all duration-200'>
         <div className="flex items-center space-x-3">
           <div className="w-10 h-10 rounded-lg flex items-center justify-center text-center bg-black">
             <p className="text-white text-xl font-semibold font-oceanwide">H</p>
@@ -12,7 +20,7 @@ const Navbar = () => {
             <p className="items-center justify-center text-xs text-black/60 tracking-tight py-px rounded-full bg-gray-700/5 flex font-Circular">v1.0.0</p>
           </div>
         </div>
-        <div className="flex relative flex-row items-center justify-center">
+        <div className="hidden sm:flex relative flex-row items-center justify-center">
           <div className='flex flex-row items-center'>
             <a href="/">
               <div className="py-1 px-3 hover:bg-zinc-600/10 text-black rounded-full transition-all duration-200 cursor-pointer">
@@ -28,11 +36,23 @@ const Navbar = () => {
             </a>
           </div>
           <div className='flex flex-row items-center'>
+            <a href="/products">
+              <div className="py-1 px-3 hover:bg-zinc-600/10 text-black rounded-full transition-all duration-200 cursor-pointer">
+                <p className="font-normal tracking-tight font-Circular">Products</p>
+              </div>
+            </a>
+          </div>
+          <div className='flex flex-row items-center'>
             <a href="/contact">
               <div className="py-1 px-3 hover:bg-zinc-600/10 text-black rounded-full transition-all duration-200 cursor-pointer">
                 <p className="font-normal tracking-tight font-Circular">Contact</p>
               </div>
             </a>
+          </div>
+        </div>
+        <div className="justify-end space-x-2 flex sm:hidden text-2xl cursor-pointer">
+          <div className='flex items-center justify-center bg-gray-700/15 w-9 h-9 hover:bg-gray-600/20 rounded-full transition-all duration-200' onClick={togglemenu}>
+            <HiOutlineMenuAlt3/>
           </div>
         </div>
         <div className="items-center justify-end space-x-2 hidden sm:flex">
@@ -47,6 +67,15 @@ const Navbar = () => {
           </a>
         </div>
       </div>
+      <div className='hidden bg-white w-full shadow-lg h-[150px] overflow-hidden transition-all duration-300 ease-in-out left-0 absolute top-[82px]  container navbar'>
+        <ul className='my-3 mx-7'>
+          <li className='py-1 border-b border-gray-700/50'><a href="/" className='font-Circular flex w-full'>Home</a></li>
+          <li className='py-1 border-b border-gray-700/50'><a href="/projects" className='font-Circular flex w-full'>Projects</a></li>
+          <li className='py-1 border-b border-gray-700/50'><a href="/products" className='font-Circular flex w-full'>Products</a></li>
+          <li className='py-1'><a href="/contact" className='font-Circular flex w-full'>Contact</a></li>
+        </ul>
+      </div>
+    </div>
   )
 }
 

@@ -8,6 +8,12 @@ import Footer from '@/components/footer'
 
 import { motion } from 'framer-motion'
 
+import HDLogo from '@/assets/img/hddev.png'
+import GENLogo from '@/assets/img/genscripts.gif'
+import AGLogo from '@/assets/img/agscripts.gif'
+import AGDLogo from '@/assets/img/agdev.gif'
+
+
 const Projects = () => {
     const container = {
         visible: {
@@ -32,9 +38,30 @@ const Projects = () => {
         {
             name: 'HD Dev',
             description: 'A comprehensive software server serving all kinds of domains',
-            url: 'discord.gg/hddev',
-            background: 'https://media.discordapp.net/attachments/1111201614544502907/1221234046638751865/banner.webp?ex=6611d5d6&is=65ff60d6&hm=ff163b5de134814401cab091ef26f3c8daab23fe854aa6c81e74bda03f9d9eae&=&format=webp',
-            logo: 'https://media.discordapp.net/attachments/1111201614544502907/1221234047036952726/logo.png?ex=6611d5d6&is=65ff60d6&hm=5410da3797937b788374bc8bd0f8718812d94f4385d742ae201e052b87abf967&=&format=webp&quality=lossless'
+            url: 'https://discord.gg/hddev',
+            background: 'https://cdn.discordapp.com/banners/1187753307331121222/5e62a74d12238593c51f46e06c8f6cb0.webp?size=2048',
+            logo: HDLogo
+        },
+        {
+            name: 'Gen Scripts',
+            description: 'A company that creates/develops custom scripts for a game called Fivem',
+            url: 'https://gen.tebex.io',
+            background: 'https://cdn.discordapp.com/banners/1168246245853233152/a_f553b1d274c3e07843223e2950abdda9.gif?size=2048',
+            logo: GENLogo
+        },
+        {
+            name: 'AG Scripts',
+            description: 'A company that creates/develops custom scripts for a game called Fivem',
+            url: 'https://agstore.tebex.io',
+            background: 'https://cdn.discordapp.com/banners/1022073234260238356/a_ff3069dd5ba009d363c0e17bff40f5f0.gif?size=2048',
+            logo: AGLogo
+        },
+        {
+            name: 'AG Dev',
+            description: 'A group that provides key, map, software services to Fivem game servers',
+            url: 'https://discord.gg/agdev',
+            background: 'https://cdn.discordapp.com/banners/1143593126636826655/a_3c7bd018e0ad9854cc29f825fcecc82c.gif?size=2048',
+            logo: AGDLogo
         },
     ]
 
