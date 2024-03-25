@@ -82,8 +82,9 @@ const Projects = () => {
                                     <div className="w-full h-full bg-black/10 backdrop-blur-sm">
                                         <div className="w-full h-full flex items-center justify-center">
                                             <Image
+                                                unoptimized
                                                 src={items.logo}
-                                                alt="Dark Partner"
+                                                alt={items.name}
                                                 className="rounded-full"
                                                 width={80}
                                                 height={80}
