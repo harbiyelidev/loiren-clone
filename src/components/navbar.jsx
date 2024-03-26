@@ -17,7 +17,7 @@ const Navbar = () => {
           </div>
           <div className="sm:flex-col hidden sm:flex">
             <h1 className="text-black text-xl font-semibold font-oceanwide">Harbiyeli</h1>
-            <p className="items-center justify-center text-xs text-black/60 tracking-tight py-px rounded-full bg-gray-700/5 flex font-Circular">v1.0.0</p>
+            <p className="items-center justify-center text-xs text-black/60 tracking-tight py-px rounded-full bg-gray-700/5 flex font-Circular">v1.0.2</p>
           </div>
         </div>
         <div className="hidden sm:flex relative flex-row items-center justify-center">
