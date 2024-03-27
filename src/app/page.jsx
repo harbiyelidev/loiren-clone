@@ -166,7 +166,7 @@ const Home = () => {
                     <div className="flex items-center justify-between pt-8 w-full">
                       <div className="flex items-center justify-center">
                         <PiMoneyFill className="h-[18px] w-[18px] text-green-600 mr-1"/>
-                        <p className='font-galanoSemiBold text-sm tracking-tight text-black/80'>{items.price} <span className="font-oceanwide">₺</span></p>
+                        <p className='font-galanoSemiBold text-sm tracking-tight text-black/80'>{items.price}<span className="font-oceanwide">₺</span></p>
                       </div>
                       <div className="flex items-center justify-center space-x-2">
                         {/* <div className="flex items-center">
