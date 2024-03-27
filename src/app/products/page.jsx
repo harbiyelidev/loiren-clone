@@ -2,7 +2,7 @@
 
 import React from 'react'
 import { BiPackage } from "react-icons/bi";
-import { MdAttachMoney } from "react-icons/md";
+import { PiMoneyFill } from "react-icons/pi";
 import { LuClock4 } from "react-icons/lu";
 
 import { products } from './../api/variables';
@@ -61,7 +61,7 @@ const Projects = () => {
                             </div>
                             <div className="flex items-center justify-between pt-8 w-full">
                             <div className="flex items-center justify-center">
-                                <MdAttachMoney className="h-[18px] w-[18px] text-green-600"/>
+                                <PiMoneyFill className="h-[18px] w-[18px] text-green-600"/>
                                 <p className='font-galanoSemiBold text-sm tracking-tight text-black/80'>{items.price}</p>
                             </div>
                             <div className="flex items-center justify-center space-x-3">
