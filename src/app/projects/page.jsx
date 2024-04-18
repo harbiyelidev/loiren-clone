@@ -39,7 +39,7 @@ const Projects = () => {
             name: 'HD Dev',
             description: 'A comprehensive software server serving all kinds of domains',
             url: 'https://discord.gg/hddev',
-            background: 'https://cdn.discordapp.com/banners/1187753307331121222/5e62a74d12238593c51f46e06c8f6cb0.webp?size=2048',
+            background: 'https://i.imgur.com/8j04cZt.png',
             logo: HDLogo
         },
         {
